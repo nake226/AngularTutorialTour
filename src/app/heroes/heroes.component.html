@@ -1,4 +1,5 @@
 <h2>My Heroes</h2>
+
 <ul class="heroes">
   <!-- ヒーローを全員表示し、選択されたヒーローだけクラスを付ける -->
   <li *ngFor="let hero of heroes"
@@ -7,15 +8,4 @@
     <span class="badge">{{ hero.id }}</span> {{ hero.name }}
   </li>
 </ul>
-<!-- ヒーローが選択されるまでは非表示 -->
-<div *ngIf="selectedHero">
-  <!-- NgModuleの機能の1つで、大文字にする -->
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedHero.id}}</div>
-  <div>
-    <label>name:
-      <!-- 双方向データバインディング -->
-      <input [(ngModel)]="selectedHero.name" placeholder="name">
-    </label>
-  </div>
-</div>
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
