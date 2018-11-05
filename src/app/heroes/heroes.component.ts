@@ -13,10 +13,18 @@ export class HeroesComponent implements OnInit {
   // 選択したヒーロー
   selectedHero: Hero;
 
-  // HeroService型のプロパティを設定
+  // HeroService型のインスタンスを宣言
   constructor(private heroService: HeroService) { }
 
-  // クリックしたヒーローを割り当てる
+  // コンポーネント生成直後に呼ばれるライフルサイクルフック
+  ngOnInit() {
+    this.getHeroes();
+  }
+
+  /**
+   * 選択したヒーローを割り当てる
+   * @param hero 
+   */
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
@@ -30,9 +38,6 @@ export class HeroesComponent implements OnInit {
         .subscribe(heroes => this.heroes = heroes);
   }
 
-  // コンポーネント生成直後に呼ばれるライフルサイクルフック
-  ngOnInit() {
-    this.getHeroes();
-  }
+  
 
 }
