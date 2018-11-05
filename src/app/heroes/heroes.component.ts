@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
+import { HEROES } from '../mock-heroes';
 
 @Component({
   selector: 'app-heroes',
@@ -7,10 +8,14 @@ import { Hero } from '../hero';
   styleUrls: ['./heroes.component.styl']
 })
 export class HeroesComponent implements OnInit {
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm'
-  };
+  // ヒーロー配列
+  heroes = HEROES;
+  // 選択したヒーロー
+  selectedHero: Hero;
+  // クリックしたヒーローを割り当てる
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
 
   constructor() { }
 
