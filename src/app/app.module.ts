@@ -1,16 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+// NgModelを使うためのライブラリ
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+// ng generateの際に自動で宣言される
 import { HeroesComponent } from './heroes/heroes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    // ng generateの際に自動で宣言される
     HeroesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

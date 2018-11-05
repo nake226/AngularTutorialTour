@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Hero } from '../hero';
 
 @Component({
   selector: 'app-heroes',
@@ -6,12 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./heroes.component.styl']
 })
 export class HeroesComponent implements OnInit {
+  hero: Hero = {
+    id: 1,
+    name: 'Windstorm'
+  };
 
   constructor() { }
-  // a lifecyclehook called soon after components were generated.
+
+  // コンポーネント生成直後に呼ばれるライフルサイクルフック
   ngOnInit() {
   }
-
-  hero = 'Windstorm';
 
 }
