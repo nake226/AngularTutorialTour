@@ -10,9 +10,7 @@ import { HeroService } from '../hero.service';
 export class HeroesComponent implements OnInit {
   // ヒーロー 一覧
   heroes: Hero[];
-  // 選択したヒーロー
-  selectedHero: Hero;
-
+  
   // HeroService型のインスタンスを宣言
   constructor(private heroService: HeroService) { }
 
@@ -22,13 +20,6 @@ export class HeroesComponent implements OnInit {
   }
 
   /**
-   * 選択したヒーローを割り当てる
-   * @param hero 
-   */
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-  }
-  /**
    * サービスからヒーローを取得
    * Observable.subscribe()の形式で取得することにより、
    * データの取得を待つことができる。
@@ -37,7 +28,4 @@ export class HeroesComponent implements OnInit {
     this.heroService.getHeroes()
         .subscribe(heroes => this.heroes = heroes);
   }
-
-  
-
 }
